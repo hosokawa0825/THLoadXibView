@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'THLoadXibView' target in the 'THLoadXibView' project
+// Prefix header for all source files of the 'THLoadXibVIew' target in the 'THLoadXibVIew' project
 //
 
 #import <Availability.h>
@@ -10,7 +10,5 @@
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
-
     #import <Foundation/Foundation.h>
-
 #endif

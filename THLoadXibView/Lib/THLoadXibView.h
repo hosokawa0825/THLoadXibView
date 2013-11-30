@@ -17,5 +17,5 @@
 */
 @interface THLoadXibView : UIView
 // XIBのキャッシュの容量を設定する
-+ (void)setCountLimit:(NSUInteger)limit;
++ (void)setXibCacheCountLimit:(NSUInteger)limit;
 @end

@@ -10,14 +10,16 @@
 @end
 
 @implementation THLoadXibView
-// XIBのキャッシュ
-static NSCache *cache;
+// UITableViewCellのcontentViewとして使用する際など、
+// ある程度の数のインスタンスを生成する場合にパフォーマンスが劣化したため
+// XIBから生成したNSCoderをキャッシュしている。
+static NSCache *coderOfXibCache;
 + (void)initialize {
-    cache = [[NSCache alloc] init];
+    coderOfXibCache = [[NSCache alloc] init];
 }
 
-+ (void)setCountLimit:(NSUInteger)limit {
-    [cache setCountLimit:limit];
++ (void)setXibCacheCountLimit:(NSUInteger)limit {
+    [coderOfXibCache setCountLimit:limit];
 }
 
 // initメソッドでインスタンスを生成した場合はCustomView.xibの設定を使う。
@@ -61,16 +63,15 @@ static NSCache *cache;
 
 - (NSCoder *)createCoder {
     // 高速化のためにキャッシュを使用する。
-    if ([cache objectForKey:self.nibName]) {
-        return [cache objectForKey:self.nibName];
+    if ([coderOfXibCache objectForKey:self.nibName]) {
+        return [coderOfXibCache objectForKey:self.nibName];
     } else {
         NSMutableData *data = [NSMutableData data];
         NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
         [[self createViewFromXib] encodeWithCoder:archiver];
         [archiver finishEncoding];
         NSCoder *coder = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        // XIBをロードする回数を減らすため、NSCoderをキャッシュする
-        [cache setObject:coder forKey:self.nibName];
+        [coderOfXibCache setObject:coder forKey:self.nibName];
         return coder;
     }
 }
@@ -82,6 +83,7 @@ static NSCache *cache;
         return topViews[0];
     } else {
         [NSException raise:@"Invalid xib file." format:@"%@.xib has no top level view or 2 and over. Xib file must have one top level view.", self.nibName];
+        abort();
     }
 }
 
@@ -89,7 +91,7 @@ static NSCache *cache;
 - (NSString *)nibName {
     // デフォルトではクラス名と同名のXIBファイルが読み込まれる。別のXIBを読み込ませたい場合はoverrideすること。
     return NSStringFromClass([self class]);
-};
+}
 
 // protected
 // サブクラスで初期化処理を実行したい場合にoverrideする。
