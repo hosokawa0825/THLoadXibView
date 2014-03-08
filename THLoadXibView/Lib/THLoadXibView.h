@@ -16,6 +16,9 @@
 *
 */
 @interface THLoadXibView : UIView
+// クラス名と同名でないXIBファイルを使用してインスタンスを生成する
+- (instancetype)initWithNibName:(NSString *)nibName;
+
 // XIBのキャッシュの容量を設定する
 + (void)setXibCacheCountLimit:(NSUInteger)limit;
 @end

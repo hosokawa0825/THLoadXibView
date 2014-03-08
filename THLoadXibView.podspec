@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'THLoadXibView'
-    s.version           = '1.0.0'
+    s.version           = '1.1.0'
     s.summary           = 'XIBからViewインスタンスを生成出来るようにするライブラリ'
     s.homepage          = 'https://github.com/hosokawa0825/THLoadXibView'
     s.license           = {

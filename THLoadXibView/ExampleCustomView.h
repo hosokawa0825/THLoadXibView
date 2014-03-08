@@ -9,4 +9,6 @@
 
 @interface ExampleCustomView : THLoadXibView
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
+- (id)initFromAnotherXib;
 @end

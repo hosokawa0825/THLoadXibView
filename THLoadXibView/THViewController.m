@@ -11,6 +11,7 @@
 
 @interface THViewController ()
 @property (weak, nonatomic) IBOutlet ExampleCustomView *viewFromXib;
+@property (weak, nonatomic) IBOutlet ExampleCustomView *viewFromAnotherXib;
 @property (strong, nonatomic) ExampleCustomView *viewFromCode;
 @end
 
@@ -27,5 +28,9 @@
     [self.view addSubview:self.viewFromCode];
     
     self.viewFromXib.testLabel.text = @"viewFromXib";
+
+    ExampleCustomView *anotherXibView = [[ExampleCustomView alloc] initFromAnotherXib];
+    anotherXibView.frame = CGRectMake(0, 200, 100, 100);
+    [self.view addSubview:anotherXibView];
 }
 @end

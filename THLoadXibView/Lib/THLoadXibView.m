@@ -7,6 +7,7 @@
 #import "THLoadXibView.h"
 
 @interface THLoadXibView ()
+@property (nonatomic) NSString *nibName;
 @end
 
 @implementation THLoadXibView
@@ -22,14 +23,20 @@ static NSCache *coderOfXibCache;
     [coderOfXibCache setCountLimit:limit];
 }
 
+- (instancetype)initWithNibName:(NSString *)nibName {
+    self.nibName = nibName;
+    self = [self init];
+    return self;
+}
+
 // initメソッドでインスタンスを生成した場合はCustomView.xibの設定を使う。
-- (id)init {
+- (instancetype)init {
     NSCoder *coder = [self createCoder];
     return [self initWithCoder:coder];
 }
 
 // initWithFrameメソッドでインスタンスを生成した場合はCustomView.xibの設定のframeのみ上書きする。
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [self init];
     if (self) {
         self.frame = frame;
@@ -40,7 +47,7 @@ static NSCache *coderOfXibCache;
 
 // initWithCoderメソッドでインスタンスを生成した場合は
 // 最も上の階層のView(top view)の設定のみCustomViewが埋め込まれたXIB(親XIB)内での設定を使う。
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     // initメソッドから呼ばれた場合、aDecoderにsubViewが既に含まれているため一旦削除する
     while (self.subviews.count) {
@@ -87,10 +94,13 @@ static NSCache *coderOfXibCache;
     }
 }
 
-// protected
 - (NSString *)nibName {
-    // デフォルトではクラス名と同名のXIBファイルが読み込まれる。別のXIBを読み込ませたい場合はoverrideすること。
-    return NSStringFromClass([self class]);
+    // デフォルトではクラス名と同名のXIBファイルが読み込まれる。
+    if (_nibName) {
+        return _nibName;
+    } else {
+        return NSStringFromClass([self class]);
+    }
 }
 
 // protected

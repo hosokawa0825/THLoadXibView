@@ -11,20 +11,12 @@
 @end
 
 @implementation ExampleCustomView
-- (NSString *)nibName {
-    if (self.customNibName) {
-        return self.customNibName;
-    } else {
-        return NSStringFromClass([self class]);
-    }
-}
-
 // クラス名と異なるファイル名のXIBファイルを読み込む場合はこのメソッドを呼び出す。
 // 但し、XIBの中にExampleCustomViewを埋め込んだ場合はExampleCustomView.xibがロードされる。
 // 一貫性がなく分かりづらいためあまりおすすめしない。ViewクラスとXIBファイルは1対1にすべき。
-- (id)initFromCustomXib {
-    self.customNibName = @"CustomXib";
-    return [self init];
+- (id)initFromAnotherXib {
+    self = [super initWithNibName:@"ExampleCustomViewAnother"];
+    return self;
 }
 
 - (void)initialize {

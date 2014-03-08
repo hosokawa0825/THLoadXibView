@@ -29,6 +29,8 @@
 		300D702A184A3ED40088F6DC /* ExampleCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300D7025184A3ED40088F6DC /* ExampleCustomView.xib */; };
 		300D7030184A3F2C0088F6DC /* THLoadXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 300D702F184A3F2C0088F6DC /* THLoadXibView.m */; };
 		300D7031184A3F2C0088F6DC /* THLoadXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 300D702F184A3F2C0088F6DC /* THLoadXibView.m */; };
+		FCF6DC05928266D6E6936588 /* ExampleCustomViewAnother.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D2A976236AC64FDDC965 /* ExampleCustomViewAnother.xib */; };
+		FCF6DC07B431FD06318BB7E9 /* ExampleCustomViewAnother.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D2A976236AC64FDDC965 /* ExampleCustomViewAnother.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		300D7025184A3ED40088F6DC /* ExampleCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleCustomView.xib; sourceTree = "<group>"; };
 		300D702E184A3F2C0088F6DC /* THLoadXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THLoadXibView.h; sourceTree = "<group>"; };
 		300D702F184A3F2C0088F6DC /* THLoadXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THLoadXibView.m; sourceTree = "<group>"; };
+		FCF6D2A976236AC64FDDC965 /* ExampleCustomViewAnother.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleCustomViewAnother.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,7 @@
 				300D7023184A3ED40088F6DC /* ExampleCustomView.h */,
 				300D7024184A3ED40088F6DC /* ExampleCustomView.m */,
 				300D7025184A3ED40088F6DC /* ExampleCustomView.xib */,
+				FCF6D2A976236AC64FDDC965 /* ExampleCustomViewAnother.xib */,
 				300D6FF7184A3E960088F6DC /* THAppDelegate.h */,
 				300D6FF8184A3E960088F6DC /* THAppDelegate.m */,
 				300D7000184A3E960088F6DC /* THViewController.h */,
@@ -262,6 +266,7 @@
 				300D6FFF184A3E960088F6DC /* Default-568h@2x.png in Resources */,
 				300D7005184A3E960088F6DC /* THViewController.xib in Resources */,
 				300D7029184A3ED40088F6DC /* ExampleCustomView.xib in Resources */,
+				FCF6DC07B431FD06318BB7E9 /* ExampleCustomViewAnother.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +276,7 @@
 			files = (
 				300D7017184A3E960088F6DC /* InfoPlist.strings in Resources */,
 				300D702A184A3ED40088F6DC /* ExampleCustomView.xib in Resources */,
+				FCF6DC05928266D6E6936588 /* ExampleCustomViewAnother.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +384,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -402,7 +407,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
