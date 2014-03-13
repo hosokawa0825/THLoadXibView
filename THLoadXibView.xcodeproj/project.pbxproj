@@ -237,7 +237,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = hosokawa;
 			};
-			buildConfigurationList = 300D6FE0184A3E960088F6DC /* Build configuration list for PBXProject "THLoadXibVIew" */;
+			buildConfigurationList = 300D6FE0184A3E960088F6DC /* Build configuration list for PBXProject "THLoadXibView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -472,7 +472,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		300D6FE0184A3E960088F6DC /* Build configuration list for PBXProject "THLoadXibVIew" */ = {
+		300D6FE0184A3E960088F6DC /* Build configuration list for PBXProject "THLoadXibView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				300D701B184A3E960088F6DC /* Debug */,

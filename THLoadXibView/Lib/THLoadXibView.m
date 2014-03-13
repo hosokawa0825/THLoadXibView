@@ -85,9 +85,17 @@ static NSCache *coderOfXibCache;
 
 - (UIView *)createViewFromXib {
     UINib *nib = [UINib nibWithNibName:self.nibName bundle:[NSBundle mainBundle]];
-    NSArray *topViews = [nib instantiateWithOwner:self options:nil];
-    if (topViews.count == 1) {
-        return topViews[0];
+    NSArray *topLevelObjects = [nib instantiateWithOwner:self options:nil];
+    UIView *topViewCandidate;
+    NSInteger viewCount = 0;
+    for (id obj in topLevelObjects) {
+        if ([obj isMemberOfClass:[UIView class]]) {
+            viewCount++;
+            topViewCandidate = obj;
+        }
+    }
+    if (viewCount == 1) {
+        return topViewCandidate;
     } else {
         [NSException raise:@"Invalid xib file." format:@"%@.xib has no top level view or 2 and over. Xib file must have one top level view.", self.nibName];
         abort();
